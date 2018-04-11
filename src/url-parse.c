@@ -1,5 +1,4 @@
 #include "url-parse.h"
-#include "stdio.h"
 #include "string.h"
 
 static URL init() {
@@ -45,11 +44,6 @@ URL parse(char* url) {
   if (url == NULL || !*url) {
     return parsed;
   }
-#if 0
-#ifdef DEBUG_URL_PARSE
-  printf("size of url: %lu\n", strlen(url));
-#endif
-#endif
 
   char* fragmentSeparator = strstr(url, "#");
   char* querySeparator = strstr(url, "?");

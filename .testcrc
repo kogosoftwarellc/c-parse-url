@@ -1,0 +1,4 @@
+# This file is sourced by test-c.
+
+# You can add gcc flags after the source and test files e.g. -lssl
+export TESTC_LD_OPTIONS="-DDEBUG_URL_PARSE=true"

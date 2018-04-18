@@ -4,35 +4,35 @@
 static URL init() {
   return (URL) {
     .scheme = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .user = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .password = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .host = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .port = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .path = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .query = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
     .fragment = {
-      .value = 0,
+      .value = NULL,
       .size = 0,
     },
   };

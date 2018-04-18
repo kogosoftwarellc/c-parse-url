@@ -1,4 +1,4 @@
-# c-url-parse
+# c-url-parse [![Build Status][travis-image]][travis-url]
 > Yet another URL parser implemented in C.
 
 ## Project Goals
@@ -34,3 +34,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
+
+[travis-url]: https://travis-ci.org/kogosoftwarellc/c-parse-url
+[travis-image]: http://img.shields.io/travis/kogosoftwarellc/c-parse-url.svg

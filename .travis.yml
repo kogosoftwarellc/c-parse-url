@@ -1,0 +1,5 @@
+install:
+  - curl -sk https://raw.githubusercontent.com/kogosoftwarellc/test-c/master/install.bash | bash
+
+script:
+  - ~/.test-c/test-c -c

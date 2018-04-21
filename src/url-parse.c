@@ -88,6 +88,7 @@ URL parse(char* url) {
   int index_length = 0;
   int index_after_separator_length = 0;
   int len = strlen(url);
+  int i = 0;
 
   if (len >= 2) {
     if (*(url) == '/' && *(url + 1) == '/') {
@@ -102,7 +103,7 @@ URL parse(char* url) {
     }
   }
 
-  for (int i = 0; i < len; i++) {
+  for (; i < len; i++) {
     switch(*(url + i)) {
       case '#':
         if (len - i > 1) {

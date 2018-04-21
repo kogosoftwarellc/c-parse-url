@@ -59,7 +59,19 @@ TEST_C_START(it_can_handle_port_separator)
   ASSERT_UNSET(fragment);
 TEST_C_END
 
-TEST_C_START(it_can_handle_no_scheme)
+TEST_C_START(it_can_handle_implicit_file_scheme)
+  URL t = parse("///");
+  ASSERT(scheme, 4, "file");
+  ASSERT_UNSET(user);
+  ASSERT_UNSET(password);
+  ASSERT_UNSET(host);
+  ASSERT_UNSET(port);
+  ASSERT(path, 1, "/");
+  ASSERT_UNSET(query);
+  ASSERT_UNSET(fragment);
+TEST_C_END
+
+TEST_C_START(it_can_handle_host)
   URL t = parse("google.com");
   ASSERT_UNSET(scheme);
   ASSERT_UNSET(user);
@@ -68,6 +80,42 @@ TEST_C_START(it_can_handle_no_scheme)
   ASSERT_UNSET(port);
   ASSERT_UNSET(path);
   ASSERT_UNSET(query);
+  ASSERT_UNSET(fragment);
+TEST_C_END
+
+TEST_C_START(it_can_handle_host_and_port)
+  URL t = parse("google.com:4001");
+  ASSERT_UNSET(scheme);
+  ASSERT_UNSET(user);
+  ASSERT_UNSET(password);
+  ASSERT(host, 10, "google.com");
+  ASSERT(port, 4, "4001");
+  ASSERT_UNSET(path);
+  ASSERT_UNSET(query);
+  ASSERT_UNSET(fragment);
+TEST_C_END
+
+TEST_C_START(it_can_handle_host_and_port_and_query)
+  URL t = parse("google.com:4000?query");
+  ASSERT_UNSET(scheme);
+  ASSERT_UNSET(user);
+  ASSERT_UNSET(password);
+  ASSERT(host, 10, "google.com");
+  ASSERT(port, 4, "4000");
+  ASSERT_UNSET(path);
+  ASSERT(query, 5, "query");
+  ASSERT_UNSET(fragment);
+TEST_C_END
+
+TEST_C_START(it_can_handle_host_and_query)
+  URL t = parse("google.com?query");
+  ASSERT_UNSET(scheme);
+  ASSERT_UNSET(user);
+  ASSERT_UNSET(password);
+  ASSERT(host, 10, "google.com");
+  ASSERT_UNSET(port);
+  ASSERT_UNSET(path);
+  ASSERT(query, 5, "query");
   ASSERT_UNSET(fragment);
 TEST_C_END
 
@@ -217,7 +265,7 @@ TEST_C_END
 
 TEST_C_START(it_can_handle_a_full_file_url_without_scheme)
   URL t = parse("///bob:foo@google.com:/foo/boo/coo?asdf=5#://asdf?::://");
-  ASSERT_UNSET(scheme);
+  ASSERT(scheme, 4, "file");
   ASSERT_UNSET(user);
   ASSERT_UNSET(password);
   ASSERT_UNSET(host);
